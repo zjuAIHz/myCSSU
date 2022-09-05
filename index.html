@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
 
@@ -11,4 +12,97 @@
   <div id="app"></div>
 <script type="text/javascript" src="./main.js"></script></body>
 
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hello, CSSU!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <div style="display: flex;">
+        <div class="styleEditor">
+          <style>
+/*
+* Hi。臭宝！
+* 不要生气了，我给你变个魔法！
+* 如这个页面。就是个什么也没有的网页。
+* 我来给这种空白的页面加点儿东西。
+* 嗯。说起来手机和电脑还得区分一下。
+* 你现在用的是。。。电脑
+*/
+
+/* 首先给所有元素加上过渡效果 */
+* {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+/* 白色背景太单调了。来点背景 */
+body, html {
+  color: #fff;
+  background-color: darkslategray;
+}
+
+/* 文字太近了 */
+.styleEditor {
+  overflow: auto;
+  width: 48vw;
+  height: 96vh;
+  border: 1px solid;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+/* 这些代码颜色都一样。加点儿高亮区别来 */
+.token.selector{ color: rgb(133,153,0) }
+.token.property{ color: rgb(187,137,0) }
+.token.punctuation{ color: yellow }
+.token.function{ color: rgb(42,161,152) }
+.token.comment{ color: rgb(177,177,177) }
+
+/* 加个 3D 效果 */
+html{
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.styleEditor {
+  transform: rotateY(10deg) translateZ(-100px) ;
+  -webkit-transform: rotateY(10deg) translateZ(-100px); 
+}
+
+/*
+* 宝贝，今天教你写代码。
+* 用代码画一个爱心。
+*/
+
+/* 首先，来一个画板 */
+.Wrapper {
+  width: 48vw;
+  height: 96vh;
+  position: relative;
+  border: 1px solid;
+  background-color: white;
+  transform: rotateY(-10deg) translateZ(-100px);
+  -webkit-transform: rotateY(-10deg) translateZ(-100px);
+}
+
+</style>
+<pre>
+
+</pre></div>
+<div class="Wrapper">
+
+</div>
+
+</div></div></div>
+
+</body>
 </html>
