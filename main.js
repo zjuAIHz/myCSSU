@@ -105,12 +105,12 @@ function ModifyStyle() {
 	let head = ""
 
 	head += "* {\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n\n"
-	head += ".styleEditor {\n  overflow: auto;\n  width: "+divwidth+"px;\n  height: "+divheight+"px;\n  border: 1px solid #fff;\n  "+
+	head += ".styleEditor {\n  overflow: auto;\n  width: "+divwidth+"px;\n  height: "+wrapheight+"px;\n  border: 1px solid #fff;\n  "+
   		"background-color: #fafafa;\n  border-radius: "+divradius+"px;\n  font-size: "+fontsize+"px;\n  line-height: 1.5;\n  "+
   		"padding: "+divpadding+"px;\n  margin: 0 auto;\n  margin-top: 20px;\n}\n\n"
   	head += ".token.selector{ color: rgb(240, 150, 66) }\n.token.property{ color: rgb(134, 193, 185) }\n.token.punctuation{ color: rgb(186, 159, 214) }\n"+
 		".token.number{ color: rgb(240, 150, 66) }\n.token.comment{ color: rgb(177,177,177) }\n\n"
-	head += ".Wrapper {\n  width: "+(divwidth+2*divpadding)+"px;\n  height: "+wrapheight+"px;\n  position: relative;\n  "+
+	head += ".Wrapper {\n  width: "+(divwidth+2*divpadding)+"px;\n  height: "+divheight+"px;\n  position: relative;\n  "+
   		"border: 1px solid;\n  border-radius: "+divradius+"px;\n  background-color: #000000;\n  margin: 0 auto;\n}\n\n"
 
 	head += ".block{\n  width: "+width+"px;\n  height: "+width+"px;\n  left: "+leftmargin+"px;\n  top: "+topmargin+
