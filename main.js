@@ -105,18 +105,18 @@ function ModifyStyle() {
 	let head = ""
 
 	head += "* {\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n\n"
-	head += ".styleEditor {\n  overflow: auto;\n  width: "+divwidth+"px;\n  height: "+wrapheight+"px;\n  border: 1px solid #fff;\n  "+
-  		"background-color: #fafafa;\n  border-radius: "+divradius+"px;\n  font-size: "+fontsize+"px;\n  line-height: 1.5;\n  "+
-  		"padding: "+divpadding+"px;\n  margin: 0 auto;\n  margin-top: 20px;\n}\n\n"
+	head += ".styleEditor {\n  overflow: auto;\n  width: "+divwidth.toFixed(1)+"px;\n  height: "+wrapheight.toFixed(1)+"px;\n  border: 1px solid #fff;\n  "+
+  		"background-color: #fafafa;\n  border-radius: "+divradius.toFixed(1)+"px;\n  font-size: "+fontsize.toFixed(1)+"px;\n  line-height: 1.5;\n  "+
+  		"padding: "+divpadding.toFixed(1)+"px;\n  margin: 0 auto;\n  margin-top: 20px;\n}\n\n"
   	head += ".token.selector{ color: rgb(240, 150, 66) }\n.token.property{ color: rgb(134, 193, 185) }\n.token.punctuation{ color: rgb(186, 159, 214) }\n"+
 		".token.number{ color: rgb(240, 150, 66) }\n.token.comment{ color: rgb(177,177,177) }\n\n"
-	head += ".Wrapper {\n  width: "+(divwidth+2*divpadding)+"px;\n  height: "+divheight+"px;\n  position: relative;\n  "+
-  		"border: 1px solid;\n  border-radius: "+divradius+"px;\n  background-color: #000000;\n  margin: 0 auto;\n}\n\n"
+	head += ".Wrapper {\n  width: "+(divwidth+2*divpadding).toFixed(1)+"px;\n  height: "+divheight.toFixed(1)+"px;\n  position: relative;\n  "+
+  		"border: 1px solid;\n  border-radius: "+divradius.toFixed(1)+"px;\n  background-color: #000000;\n  margin: 0 auto;\n}\n\n"
 
-	head += ".block{\n  width: "+width+"px;\n  height: "+width+"px;\n  left: "+leftmargin+"px;\n  top: "+topmargin+
-		"px;\n  border-radius: "+radius+"px;\n  position: absolute;\n  background-color: #7A7A7A;\n}\n\n"
-	for (i = 0; i < wn; i++) head += ".Xpos"+i+"{\n  left: "+((width+distance)*i+leftmargin)+"px;\n}\n"
-	for (j = 0; j < hn; j++) head += ".Ypos"+j+"{\n  top: "+((width+distance)*j+topmargin)+"px;\n}\n"
+	head += ".block{\n  width: "+width.toFixed(1)+"px;\n  height: "+width.toFixed(1)+"px;\n  left: "+leftmargin.toFixed(1)+"px;\n  top: "+topmargin.toFixed(1)+
+		"px;\n  border-radius: "+radius.toFixed(1)+"px;\n  position: absolute;\n  background-color: #7A7A7A;\n}\n\n"
+	for (i = 0; i < wn; i++) head += ".Xpos"+i+"{\n  left: "+((width+distance)*i+leftmargin).toFixed(1)+"px;\n}\n"
+	for (j = 0; j < hn; j++) head += ".Ypos"+j+"{\n  top: "+((width+distance)*j+topmargin).toFixed(1)+"px;\n}\n"
 
 	track = head+track
 }
