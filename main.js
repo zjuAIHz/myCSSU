@@ -193,7 +193,7 @@ function LoadFunction() {
 
 	for (i = 0; i < wn; i++) {
 		for (j = 0; j < hn; j++) {
-			b.innerHTML += "<div class=\"block Xpos"+i+" Ypos"+j+" block_"+i+"_"+j+"\" onmouseover=\"SetColor("+i+", "+j+");\" onswipe=\"SetColor("+i+", "+j+");\"></div>\n"
+			b.innerHTML += "<div class=\"block Xpos"+i+" Ypos"+j+" block_"+i+"_"+j+"\" onmouseover=\"SetColor("+i+", "+j+");\" ontouchmove=\"SetColor("+i+", "+j+");\"></div>\n"
 		}
 	}
 
@@ -240,7 +240,7 @@ function EndFill() {
 function DrawFine() {
 	if (endraw == true) {
 		endraw = false
-		DisplayString(track4, 50, function(){}, true)
+		DisplayString(track4, 30, function(){}, true)
 	}
 }
 
