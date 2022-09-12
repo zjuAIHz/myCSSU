@@ -193,7 +193,7 @@ function LoadFunction() {
 
 	for (i = 0; i < wn; i++) {
 		for (j = 0; j < hn; j++) {
-			b.innerHTML += "<div class=\"block Xpos"+i+" Ypos"+j+" block_"+i+"_"+j+"\" onmouseover=\"SetColor("+i+", "+j+");\" ontouchstart=\"SetColor("+i+", "+j+");\"></div>\n"
+			b.innerHTML += "<div class=\"block Xpos"+i+" Ypos"+j+" block_"+i+"_"+j+"\" onmouseover=\"SetColor("+i+", "+j+");\"></div>\n"
 		}
 	}
 
@@ -212,6 +212,26 @@ function LoadFunction() {
 function SetColor(i, j) {
 	if (!endraw) return;
 	if (!isFill || downarr[j*wn+i] == downtime) return;
+
+	let a = document.getElementById("PageStyle");
+	a.innerHTML += ".block_"+i+"_"+j+"{\n\tbackground-color: "+colorSet[color]+";\n}\n"
+	downarr[j*wn+i] = downtime
+}
+
+function PhoneDraw() {
+	if (!endraw) return;
+	if (!isFill || downarr[j*wn+i] == downtime) return;
+
+	// 获取某个元素的位置
+	let p = document.getElementsByClassName(".block_0_0")[0]
+	// p.clientTop, p.clientLeft
+	// e.touches[0].clientX, e.touches[0].clientY
+	// width distance
+	let i = Math.floor(1.0*(e.touches[0].clientX-p.clientLeft)/(width+distance))
+	let j = Math.floor(1.0*(e.touches[0].clientY-p.clientTop)/(width+distance))
+	if (!(i>=0 && i < wn && j >= 0 && j < hn && 
+		(e.touches[0].clientX-p.clientLeft) % (width+distance) <= width && 
+		(e.touches[0].clientY-p.clientTop) % (width+distance) <= width )) return;
 
 	let a = document.getElementById("PageStyle");
 	a.innerHTML += ".block_"+i+"_"+j+"{\n\tbackground-color: "+colorSet[color]+";\n}\n"
