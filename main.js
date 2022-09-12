@@ -78,6 +78,7 @@ var tracknum = 0
 */
 
 var ratio = 1
+var renewchar = 10
 
 function SetParameter(x, y) {
 	if (x >= divwidth+divpadding+20) {
@@ -110,13 +111,13 @@ function ModifyStyle() {
   		"padding: "+divpadding.toFixed(1)+"px;\n  margin: 0 auto;\n  margin-top: 20px;\n}\n\n"
   	head += ".token.selector{ color: rgb(240, 150, 66) }\n.token.property{ color: rgb(134, 193, 185) }\n.token.punctuation{ color: rgb(186, 159, 214) }\n"+
 		".token.number{ color: rgb(240, 150, 66) }\n.token.comment{ color: rgb(177,177,177) }\n\n"
-	head += ".Wrapper {\n  width: "+(divwidth+2*divpadding).toFixed(1)+"px;\n  height: "+divheight.toFixed(1)+"px;\n  position: relative;\n  "+
-  		"border: 1px solid;\n  border-radius: "+divradius.toFixed(1)+"px;\n  background-color: #000000;\n  margin: 0 auto;\n}\n\n"
+	head += ".Wrapper {\n  background-color: #000000;\n  width: "+(divwidth+2*divpadding).toFixed(1)+"px;\n  height: "+divheight.toFixed(1)+"px;\n  position: relative;\n  "+
+  		"border: 1px solid;\n  border-radius: "+divradius.toFixed(1)+"px;\n  margin: 0 auto;\n}\n\n"
 
 	head += ".block{\n  width: "+width.toFixed(1)+"px;\n  height: "+width.toFixed(1)+"px;\n  left: "+leftmargin.toFixed(1)+"px;\n  top: "+topmargin.toFixed(1)+
 		"px;\n  border-radius: "+radius.toFixed(1)+"px;\n  position: absolute;\n  background-color: #7A7A7A;\n}\n\n"
-	for (i = 0; i < wn; i++) head += ".Xpos"+i+"{\n  left: "+((width+distance)*i+leftmargin).toFixed(1)+"px;\n}\n"
-	for (j = 0; j < hn; j++) head += ".Ypos"+j+"{\n  top: "+((width+distance)*j+topmargin).toFixed(1)+"px;\n}\n"
+	for (i = 0; i < wn; i++) head += ".Xpos"+i+"{left: "+((width+distance)*i+leftmargin).toFixed(1)+"px;}\n"
+	for (j = 0; j < hn; j++) head += ".Ypos"+j+"{top: "+((width+distance)*j+topmargin).toFixed(1)+"px;}\n"
 
 	track = head+track
 }
@@ -143,15 +144,27 @@ function LoadFunction() {
 		}
 	}
 
+	let tempstr = ""
+	let tempint = 0
+
+	let comment = false
+	let inb = false
+
 	styletimer = window.setInterval(function(){
-		if(track[tracknum]=='\0') {
+		if(tracknum >= track.length) {
 			clearInterval(styletimer);
 			return;
 		}
-		a.innerHTML += track[tracknum]
-		c.innerHTML += track[tracknum]
+		tempint = track.indexOf('\n', tracknum)
+		tempstr = track.slice(tracknum, tempint )
+		tempstr += (tempint==-1)?track[track.length-1]:track[tempint]
+
+		a.innerHTML += tempstr // track.substr(tracknum, renewchar)
+		
+		 c.innerHTML += tempstr // track.substr(tracknum, renewchar)
+
 		d.scrollTop = d.scrollHeight
-		tracknum += 1
+		tracknum += tempstr.length
 	}, 10)
 }
 
