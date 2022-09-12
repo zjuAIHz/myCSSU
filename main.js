@@ -193,13 +193,13 @@ function LoadFunction() {
 
 	for (i = 0; i < wn; i++) {
 		for (j = 0; j < hn; j++) {
-			b.innerHTML += "<div class=\"block Xpos"+i+" Ypos"+j+" block_"+i+"_"+j+"\" onmouseover=\"SetColor("+i+", "+j+");\"></div>\n"
+			b.innerHTML += "<div class=\"block Xpos"+i+" Ypos"+j+" block_"+i+"_"+j+"\" onmouseover=\"SetColor("+i+", "+j+");\" ontouchmove=\"SetColor("+i+", "+j+");\"></div>\n"
 		}
 	}
 
 	for (i = 0; i < colorSet.length-1; i++) 
-		e.innerHTML += "<div class=\"colorSelector\" style=\"background-color: "+colorSet[i]+"\"  onclick=\"ChangeColor("+i+");\"></div>"
-	e.innerHTML += "<div class=\"button\" onclick=\"DrawFine();\"></div>"
+		e.innerHTML += "<div class=\"colorSelector\" style=\"background-color: "+colorSet[i]+"\"  onclick=\"ChangeColor("+i+");\"  ontouchend=\"ChangeColor("+i+");\"></div>"
+	e.innerHTML += "<div class=\"button\" onclick=\"DrawFine();\" ontouchend=\"DrawFine();\"></div>"
 
 	DisplayString(track, 50, function(){
 		DisplayString(track2, 150, function(){
