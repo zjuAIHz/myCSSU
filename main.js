@@ -180,6 +180,9 @@ function LoadFunction() {
 	let c = document.getElementById("Code")
 	let d = document.getElementById("styleEditor")
 	let e = document.getElementById("Color")
+
+	document.getElementById("Wrapper").ontouchmove = function(event){PhoneDraw(event);}
+
 	track4 = a.innerHTML;
 	a.innerHTML = ""
 
@@ -218,20 +221,25 @@ function SetColor(i, j) {
 	downarr[j*wn+i] = downtime
 }
 
-function PhoneDraw() {
+function PhoneDraw(e) {
 	if (!endraw) return;
-	if (!isFill || downarr[j*wn+i] == downtime) return;
+	// console.log(e)
+	e.preventDefault();
 
 	// 获取某个元素的位置
-	let p = document.getElementsByClassName(".block_0_0")[0]
+	let p = document.getElementsByClassName("block_0_0")[0]
 	// p.clientTop, p.clientLeft
 	// e.touches[0].clientX, e.touches[0].clientY
 	// width distance
-	let i = Math.floor(1.0*(e.touches[0].clientX-p.clientLeft)/(width+distance))
-	let j = Math.floor(1.0*(e.touches[0].clientY-p.clientTop)/(width+distance))
+	// p.getBoundingClientRect().x
+
+	// console.log(e.touches[0].clientX)
+	// console.log(p.getBoundingClientRect().x)
+	let i = Math.floor(1.0*(e.touches[0].clientX-p.getBoundingClientRect().x)/(width+distance))
+	let j = Math.floor(1.0*(e.touches[0].clientY-p.getBoundingClientRect().y)/(width+distance))
 	if (!(i>=0 && i < wn && j >= 0 && j < hn && 
-		(e.touches[0].clientX-p.clientLeft) % (width+distance) <= width && 
-		(e.touches[0].clientY-p.clientTop) % (width+distance) <= width )) return;
+		(e.touches[0].clientX-p.getBoundingClientRect().x) % (width+distance) <= width && 
+		(e.touches[0].clientY-p.getBoundingClientRect().y) % (width+distance) <= width )) return;
 
 	let a = document.getElementById("PageStyle");
 	a.innerHTML += ".block_"+i+"_"+j+"{\n\tbackground-color: "+colorSet[color]+";\n}\n"
